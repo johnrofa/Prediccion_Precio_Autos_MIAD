@@ -34,7 +34,8 @@ resource_fields = api.model('Resource', {
     'result': fields.String,
 })
 
-
+@api.doc(parser=parser)
+@api.marshal_with(resource_fields)
 @app.route('/modelo1', methods=["POST"])
 def lectura():
     print(request.data)
